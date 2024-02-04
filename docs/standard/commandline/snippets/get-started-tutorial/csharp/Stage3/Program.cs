@@ -74,17 +74,17 @@ class Program
                 fgcolorOption,
                 lightModeOption
             };
-        quotesCommand.AddCommand(readCommand);
+        rootCommand.AddCommand(readCommand);
 
         var deleteCommand = new Command("delete", "Delete lines from the file.");
         deleteCommand.AddOption(searchTermsOption);
-        quotesCommand.AddCommand(deleteCommand);
+        rootCommand.AddCommand(deleteCommand);
 
         var addCommand = new Command("add", "Add an entry to the file.");
         addCommand.AddArgument(quoteArgument);
         addCommand.AddArgument(bylineArgument);
         addCommand.AddAlias("insert");
-        quotesCommand.AddCommand(addCommand);
+        rootCommand.AddCommand(addCommand);
         // </commands>
 
         readCommand.SetHandler(async (file, delay, fgcolor, lightMode) =>
